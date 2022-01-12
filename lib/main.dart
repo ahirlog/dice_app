@@ -11,7 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var diceNum = 0;
+  var diceNum = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +32,15 @@ class _MyAppState extends State<MyApp> {
             children: [
               Container(
                 height: 180,
-                child: Expanded(
-                  child: TextButton(
-                    onPressed: () {
-                      setState(() {
-                        diceNum = Random().nextInt(6) + 1;
-                      });
-                    },
-                    child: Image.asset(
-                      'images/dice$diceNum.png',
-                      height: 220,
-                    ),
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      diceNum = Random().nextInt(6) + 1;
+                    });
+                  },
+                  child: Image.asset(
+                    "images/dice$diceNum.png",
+                    height: 220,
                   ),
                 ),
               ),
@@ -53,16 +51,17 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   setState(() {
                     diceNum = Random().nextInt(6) + 1;
+                    print(diceNum);
                   });
                 },
                 child: Padding(
                   padding: EdgeInsets.all(
-                    10,
+                    15,
                   ),
                   child: Text(
                     'Flip',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 30,
                     ),
                   ),
                 ),
